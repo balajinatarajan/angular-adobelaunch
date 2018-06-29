@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <input type="radio" name="offer" id="{{id}}" class="col-1" (click)="offerClick($event)" [checked]="offerIsSelected()">
+      <h3 class="col-11">{{offerData.name}}</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="px-3">      
+        {{offerData.description}}      
+    </div>
+  </div>
+</div>
