@@ -9,6 +9,7 @@ import { LandingCreditCardComponent } from './landing-credit-card/landing-credit
 import { LandingThankYouComponent } from './landing-thank-you/landing-thank-you.component';
 import { LandingLayoutComponent } from './landing-layout/landing-layout.component';
 import { FlepzAccountService } from '../shared/services/flepz-account.service';
+import { LandingOffersVariantAComponent } from './landing-offers-variant-a/landing-offers-variant-a.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { FlepzAccountService } from '../shared/services/flepz-account.service';
     LandingOffersComponent,
     LandingCreditCardComponent,
     LandingThankYouComponent,
-    LandingLayoutComponent
+    LandingLayoutComponent,
+    LandingOffersVariantAComponent
   ],
   providers: [
     OfferService,

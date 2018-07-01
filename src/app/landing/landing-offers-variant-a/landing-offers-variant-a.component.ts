@@ -13,15 +13,15 @@ declare var is_test_configured_for: any;
 declare var route_config: any;
 
 @Component({
-  selector: 'app-landing-offers',
-  templateUrl: './landing-offers.component.html',
-  styleUrls: ['./landing-offers.component.scss'],
+  selector: 'app-landing-offers-variant-a',
+  templateUrl: './landing-offers-variant-a.component.html',
+  styleUrls: ['./landing-offers-variant-a.component.scss'],
   // tslint:disable-next-line:use-host-property-decorator
   host: {
     class: 'col'
   }
 })
-export class LandingOffersComponent extends CommonPageComponent implements OnInit {
+export class LandingOffersVariantAComponent extends CommonPageComponent implements OnInit {
 
   offers: Offer[];
   private selectedOffer: Offer;
@@ -39,7 +39,7 @@ export class LandingOffersComponent extends CommonPageComponent implements OnIni
   ngOnInit() {
     this.activatedRoute.data.pipe(takeUntil(this.destroy$)).subscribe((params) => {
       this.offers = params.offers;
-      
+
       //Expose offers to data layer 
       let datalayer = window["datalayer"] || {};
       datalayer["offers"] = params.offers;
@@ -52,14 +52,14 @@ export class LandingOffersComponent extends CommonPageComponent implements OnIni
 
       super.ngOnInit();
 
-      // Check if there is an AB Testing configured
-      if(typeof is_test_configured_for == "function"){
-        if(is_test_configured_for(this.flowname, this.pagename)){
-          const routename = route_config[this.flowname+"_"+this.pagename]();
+      /* Check if there is an AB Testing configured
+      if (typeof is_test_configured_for == "function") {
+        if (is_test_configured_for(this.flowname, this.pagename)) {
+          const routename = route_config[this.flowname + "_" + this.pagename]();
           //Go to new route per AB Testing tool - also skip location change so when user hits back from the variant page, they will go to the previous page instead of control. ex: landing -> offersA instead of landing -> offers -> offersA
           this.router.navigate([routename], { skipLocationChange: true });
         }
-      }
+      }*/
 
     });
   }
@@ -68,3 +68,4 @@ export class LandingOffersComponent extends CommonPageComponent implements OnIni
     this.selectedOffer = offer;
   }
 }
+

@@ -8,6 +8,7 @@ import { LandingThankYouComponent } from './landing-thank-you/landing-thank-you.
 import { OffersResolver } from '../shared/resolvers/offers.resolver';
 import { FlepzAccountExistsGuard } from '../shared/guards/flepz-account-exists.guard';
 import { OfferIsSelectedGuard } from '../shared/guards/offer-is-selected.guard';
+import { LandingOffersVariantAComponent } from './landing-offers-variant-a/landing-offers-variant-a.component';
 const routes: Routes = [
     {
         path: '',
@@ -34,6 +35,13 @@ const routes: Routes = [
                 path: 'thank-you',
                 component: LandingThankYouComponent
             },
+            {
+                path: 'offersA',
+                component: LandingOffersVariantAComponent,
+                resolve: {
+                    offers: OffersResolver
+                }
+            }
         ]
     },
 ];
